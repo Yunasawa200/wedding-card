@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation</title>
+
+    <!-- Font definitions -->
+    <style id="fonts1" type="text/css">
+        @font-face {
+            font-family: 'Nunito-Regular';
+            src: url("fonts/Nunito/static/Nunito-Light.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Nunito-Bold';
+            src: url("fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: 'Nunito-Black';
+            src: url("fonts/Nunito/static/Nunito-Black.ttf") format("truetype");
+            font-weight: 900;
+        }
+    </style>
+
+    <!-- Main styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Nunito-Regular', sans-serif;
+            background: #fdfaf6;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: url('your-photo.jpg') no-repeat center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+            header h1 {
+                font-family: 'Nunito-Black', sans-serif;
+                font-size: 3rem;
+                margin: 0;
+            }
+
+            header p {
+                font-family: 'Nunito-Regular', sans-serif;
+                font-size: 1.5rem;
+            }
+
+        section {
+            padding: 3rem 1rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+            section h2 {
+                font-family: 'Nunito-Bold', sans-serif;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+        .date {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #a0522d;
+            font-family: 'Nunito-Bold', sans-serif;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: #a0522d;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+            font-family: 'Nunito-Bold', sans-serif;
+        }
+
+            .button:hover {
+                background: #8b4513;
+            }
+
+        footer {
+            padding: 2rem 1rem;
+            background: #faf3eb;
+            font-size: 0.9rem;
+            color: #777;
+            font-family: 'Nunito-Regular', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Long & Hiền</h1>
+        <p>Trân trọng kính mời bạn đến dự lễ cưới của chúng tôi.</p>
+    </header>
+
+    <section>
+        <h2>Lời mời</h2>
+        <p class="date">Thứ Bảy, 15 Tháng 11, 2025</p>
+        <p>Chúng tôi hân hoan mời bạn đến chung vui cùng gia đình trong ngày trọng đại này.</p>
+        <p>📍 Địa điểm: Rose Garden Hall, TP. Hồ Chí Minh</p>
+        <a href="https://maps.google.com" class="button">Xem bản đồ</a>
+    </section>
+
+    <section>
+        <h2>Lịch trình</h2>
+        <p>💒 Lễ cưới – 3:00 PM</p>
+        <p>🍽️ Tiệc – 6:00 PM</p>
+        <p>🎉 Liên hoan – 8:00 PM</p>
+    </section>
+
+    <section>
+        <h2>Hồi âm (RSVP)</h2>
+        <p>Vui lòng cho chúng tôi biết trước ngày 20/10/2025</p>
+        <a href="mailto:youremail@example.com" class="button">Gửi phản hồi</a>
+    </section>
+
+    <footer>
+        <p>Thân ái, Long & Hiền</p>
+    </footer>
+</body>
+</html>
