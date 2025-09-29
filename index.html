@@ -4,107 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Invitation</title>
-
-    <!-- Font definitions -->
-    <style id="fonts1" type="text/css">
-        @font-face {
-            font-family: 'Nunito-Regular';
-            src: url("fonts/Nunito/static/Nunito-Light.ttf") format("truetype");
-        }
-
-        @font-face {
-            font-family: 'Nunito-Bold';
-            src: url("fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
-            font-weight: bold;
-        }
-
-        @font-face {
-            font-family: 'Nunito-Black';
-            src: url("fonts/Nunito/static/Nunito-Black.ttf") format("truetype");
-            font-weight: 900;
-        }
-    </style>
-
-    <!-- Main styles -->
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Nunito-Regular', sans-serif;
-            background: #fdfaf6;
-            color: #333;
-            text-align: center;
-        }
-
-        header {
-            background: url('your-photo.jpg') no-repeat center/cover;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
-
-            header h1 {
-                font-family: 'Nunito-Black', sans-serif;
-                font-size: 3rem;
-                margin: 0;
-            }
-
-            header p {
-                font-family: 'Nunito-Regular', sans-serif;
-                font-size: 1.5rem;
-            }
-
-        section {
-            padding: 3rem 1rem;
-            max-width: 700px;
-            margin: auto;
-        }
-
-            section h2 {
-                font-family: 'Nunito-Bold', sans-serif;
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-
-        .date {
-            font-size: 2rem;
-            margin: 1rem 0;
-            color: #a0522d;
-            font-family: 'Nunito-Bold', sans-serif;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.8rem 2rem;
-            background: #a0522d;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.3s;
-            font-family: 'Nunito-Bold', sans-serif;
-        }
-
-            .button:hover {
-                background: #8b4513;
-            }
-
-        footer {
-            padding: 2rem 1rem;
-            background: #faf3eb;
-            font-size: 0.9rem;
-            color: #777;
-            font-family: 'Nunito-Regular', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="Styles/MainStyle.css">
+    <link rel="stylesheet" href="Styles/IntrodutionPage.css">
+    <link rel="stylesheet" href="Styles/FontFamily.css">
+    <link rel="stylesheet" href="Styles/WeddingCard.css">
 </head>
 <body>
-    <header>
-        <h1>Bùi Thành Long & Dương Thị Hiền</h1>
-        <p>Trân trọng kính mời bạn đến dự lễ cưới của chúng tôi.</p>
+    <header class="IntroductionPage_Page">
+        <p class="IntroductionPage_Quote">
+            I love three things in this world: sun, moon and you. Sun for morning,
+            moon for night and you forever.
+        </p>
+        <p class="IntroductionPage_Welcome"> Thiệp Cưới </p>
+        <div class="container">
+            <div class="bottom-layer-rect"></div>
+            <div class="bottom-layer-triangle"></div>
+            <div class="bottom-layer-triangle-in"></div>
+
+            <div class="wax-seal"></div>
+
+            <div class="triangle bottom"></div>
+            <div class="triangle left"></div>
+            <div class="triangle right"></div>
+
+            <div class="cross-line diagonal-left"></div>
+            <div class="cross-line diagonal-right"></div>
+
+            <img class="envelope-image" src="https://picsum.photos/200/120" alt="Letter">
+        </div>
     </header>
 
     <section>
@@ -131,5 +59,7 @@
     <footer>
         <p>Thân ái, Long & Hiền</p>
     </footer>
+
+    <script src="../Scripts/Script.js"></script>
 </body>
 </html>

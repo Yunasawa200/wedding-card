@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Nunito-Regular';
+    src: url("../Fonts/Nunito/static/Nunito-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Nunito-Bold';
+    src: url("../Fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Nunito-Black';
+    src: url("../Fonts/Nunito/static/Nunito-Black.ttf") format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Rouge Script';
+    src: url("../Fonts/Rouge-Script/RougeScript-Regular.ttf") format("truetype");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Alex Brush';
+    src: url("../Fonts/Alex_Brush/AlexBrush-Regular.ttf") format("truetype");
+    font-weight: 200;
+}
