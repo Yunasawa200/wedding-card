@@ -1,0 +1,143 @@
+﻿.wax-seal {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #8B0000;
+    background-image: url('../Sources/Images/Wax Seal Stamp.webp');
+    background-position: center; /* center the image */
+    background-repeat: no-repeat; /* don’t tile */
+    background-size: contain; /* scale to fit inside */
+
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 100%; /* circular */
+}
+
+.container {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.bottom-layer-rect {
+    position: absolute;
+    width: 230px;
+    height: 145px;
+    background-color: #fff7bd;
+    border-left: 10px solid #8B0000;
+    border-right: 10px solid #8B0000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Bottom layer triangle */
+.bottom-layer-triangle {
+    position: absolute;
+    width: 250px;
+    height: 75px;
+    background-color: #8B0000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 145px;
+    clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+    z-index: 1; /* on top of rectangle */
+}
+
+.bottom-layer-triangle-in {
+    position: absolute;
+    width: 230px;
+    height: 75px;
+    background-color: #fff7bd;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 145px;
+    clip-path: polygon(0% 100%, 100% 100%, 50% 10%);
+    z-index: 1; /* on top of rectangle */
+}
+
+.triangle {
+    position: absolute;
+    width: 250px;
+    height: 145px;
+    background: #8B0000;
+    left: 50%; /* move left edge to 50% of container */
+    transform: translateX(-50%); /* shift back by half width to center */
+    bottom: 0;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+    /* Top triangle removed, so not rendered */
+
+    /* Bottom triangle */
+    .triangle.bottom {
+        clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
+    }
+
+    /* Left triangle */
+    .triangle.left {
+        clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+    }
+
+    /* Right triangle */
+    .triangle.right {
+        clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
+    }
+
+/* Envelope cross lines */
+.cross-line {
+    position: absolute;
+    background: #8B0000; /* same as card border */
+    z-index: 3; /* above triangles */
+}
+
+    /* diagonal line: bottom-left → top-right */
+    .cross-line.diagonal-left {
+        width: 2px;
+        height: 72.5%;
+        background: #fff7bd;
+        left: 50%;
+        bottom: -72.5px;
+        transform: translateX(-50%) rotate(60deg);
+        transform-origin: center;
+        z-index: 2;
+    }
+
+    /* diagonal line: bottom-right → top-left */
+    .cross-line.diagonal-right {
+        width: 2px;
+        height: 72.5%;
+        background: #fff7bd;
+        left: 50%;
+        bottom: -72.5px;
+        transform: translateX(-50%) rotate(-60deg);
+        transform-origin: center;
+        z-index: 2;
+    }
+
+.envelope-image {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    left: 50%;
+    bottom: -100px;
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 3px solid #8B0000;
+    transition: bottom 1s ease-in-out;
+}
+
+.container.open .envelope-image {
+    bottom: 50px; /* final visible position */
+}
