@@ -28,7 +28,8 @@
     position: absolute;
     width: 230px;
     height: 145px;
-    background-color: #fff7bd;
+    /* gradient instead of flat color */
+    background: linear-gradient(to bottom, #fff7bd, #ffe68a);
     border-left: 10px solid #8B0000;
     border-right: 10px solid #8B0000;
     left: 50%;
@@ -39,59 +40,55 @@
     border-bottom-right-radius: 10px;
 }
 
-/* Bottom layer triangle */
 .bottom-layer-triangle {
     position: absolute;
     width: 250px;
     height: 75px;
-    background-color: #8B0000;
+    background: linear-gradient(to top, #8B0000, #a52a2a); /* dark → lighter red */
     left: 50%;
     transform: translateX(-50%);
     bottom: 145px;
     clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
-    z-index: 1; /* on top of rectangle */
+    z-index: 1;
 }
 
 .bottom-layer-triangle-in {
     position: absolute;
     width: 230px;
     height: 75px;
-    background-color: #fff7bd;
+    background: linear-gradient(to top, #fff7bd, #fffbe0);
     left: 50%;
     transform: translateX(-50%);
     bottom: 145px;
     clip-path: polygon(0% 100%, 100% 100%, 50% 10%);
-    z-index: 1; /* on top of rectangle */
+    z-index: 1;
 }
 
 .triangle {
     position: absolute;
     width: 250px;
     height: 145px;
-    background: #8B0000;
-    left: 50%; /* move left edge to 50% of container */
-    transform: translateX(-50%); /* shift back by half width to center */
+    background: linear-gradient(to bottom, #8B0000, #6b0000);
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 0;
     z-index: 2;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-    /* Top triangle removed, so not rendered */
-
-    /* Bottom triangle */
+    /* clip-path still works as usual with gradient */
     .triangle.bottom {
         clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
     }
 
-    /* Left triangle */
     .triangle.left {
         clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
     }
 
-    /* Right triangle */
     .triangle.right {
         clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
     }
+
 
 /* Envelope cross lines */
 .cross-line {

@@ -1,65 +1,196 @@
-﻿<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding Invitation</title>
-    <link rel="stylesheet" href="test.css">
-    <link rel="stylesheet" href="Styles/MainStyle.css">
-    <link rel="stylesheet" href="Styles/IntrodutionPage.css">
-    <link rel="stylesheet" href="Styles/FontFamily.css">
-    <link rel="stylesheet" href="Styles/WeddingCard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masked Image with Overlay</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background-color: white; /* fallback for bottom fade */
+        }
+
+        /* Full-page background with fade to white */
+        .full-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/176c1b49-b240-447d-b5ad-fa724d4668c9.png");
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: destination-in;
+        }
+
+        /* Main masked image */
+        .photo-component {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-mask-box-image-source: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
+            -webkit-mask-box-image-slice: 0 fill;
+            mask-image: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .photo-bg-wrap {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0;
+            /*border: 4px solid white;*/
+            box-sizing: border-box;
+        }
+
+        /* Overlay / secondary image */
+        .overlay {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 279px;
+            height: 92px;
+            z-index: 4;
+            cursor: default;
+            transition: 1.3s ease-out 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Figma-style extra components */
+        .extra-component {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            width: 333px;
+            height: 418px;
+            z-index: 5;
+            cursor: default;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1.3s ease-out 0.2s;
+        }
+
+            .extra-component .photo-component {
+                -webkit-mask-box-image-source: none;
+                -webkit-mask-box-image-slice: 0 fill;
+                mask-image: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .extra-component .photo-bg-wrap {
+                background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/55347187-63ca-4b14-8de2-3d4ca51256ee.png");
+                border-radius: 0;
+            }
+
+        /* New masked component ydsZSP37vX (larger + centered) */
+        .ydsZSP37vX {
+            position: absolute;
+            transform: translateX(-50%); /* horizontally center */
+            /*top: 145px;*/
+            /*left: 34%;*/
+            /*width: 170px;*/
+            /*height: 300px;*/
+            z-index: 1;
+            cursor: default;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1.3s ease-out 0.2s;
+        }
+
+            .ydsZSP37vX .photo-component {
+                -webkit-mask-box-image-source: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
+                -webkit-mask-box-image-slice: 0 fill;
+                mask-image: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
+                mask-size: 100% 100%;
+                mask-repeat: no-repeat;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+
+            .ydsZSP37vX .photo-bg-wrap {
+                background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/83471352-a8ae-4ac1-8912-be1d511c433b.png?crop=20,6,35,53");
+                /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcfaNnuXQHmFukMH2dFbS25zxw5vQ8plEnsw&s");*/
+                border-radius: 0;
+                border: 2px solid white; /* reduced border size */
+                box-sizing: border-box;
+            }
+
+        .main-picture {
+            position: absolute;
+            top: 120px;
+            min-width: 300px;
+            min-height: 450px;
+        }
+    </style>
 </head>
 <body>
-    <header class="IntroductionPage_Page">
-        <p class="IntroductionPage_Quote">
-            I love three things in this world: sun, moon and you. Sun for morning,
-            moon for night and you forever.
-        </p>
-        <p class="IntroductionPage_Welcome"> Thiệp Cưới </p>
-        <div class="container">
-            <div class="bottom-layer-rect"></div>
-            <div class="bottom-layer-triangle"></div>
-            <div class="bottom-layer-triangle-in"></div>
 
-            <div class="wax-seal"></div>
+    <!-- Full-page background with fade -->
+    <div class="full-bg"></div>
 
-            <div class="triangle bottom"></div>
-            <div class="triangle left"></div>
-            <div class="triangle right"></div>
-
-            <div class="cross-line diagonal-left"></div>
-            <div class="cross-line diagonal-right"></div>
-
-            <img class="envelope-image" src="https://picsum.photos/200/120" alt="Letter">
+    <!-- Main masked image -->
+    <div class="main-picture">
+        <div class="photo-component">
+            <div class="photo-bg-wrap" style="background-image: url('https://wallpapers.com/images/hd/nature-scenery-portrait-f4lsl6ohevep5674.jpg');"></div>
         </div>
-    </header>
+    </div>
 
-    <section>
-        <h2>Lời mời</h2>
-        <p class="date">Chủ Nhật, ngày 30 tháng 11, 2025 (ngày 11 tháng 10 Âm lịch)</p>
-        <p>Chúng tôi hân hoan mời bạn đến chung vui cùng gia đình trong ngày trọng đại này.</p>
-        <p>📍 Địa điểm: Làng La Ngoại, xã Thanh Miện, tỉnh Hải Phòng</p>
-        <a href="https://maps.google.com" class="button">Xem bản đồ</a>
-    </section>
+    <!-- Overlay image -->
+    <div class="overlay">
+        <div class="photo-bg-wrap" style="background-image: url('https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/3dbe9113-b78d-44e4-b62f-b561fd8e9c1e.png');"></div>
+    </div>
 
-    <section>
-        <h2>Lịch trình</h2>
-        <p>💒 Lễ cưới – 3:00 PM</p>
-        <p>🍽️ Tiệc – 6:00 PM</p>
-        <p>🎉 Liên hoan – 8:00 PM</p>
-    </section>
+    <!-- Extra Figma-style component -->
+    <div class="extra-component">
+        <div class="photo-component">
+            <div class="photo-bg-wrap"></div>
+        </div>
+    </div>
 
-    <section>
-        <h2>Hồi âm (RSVP)</h2>
-        <p>Vui lòng cho chúng tôi biết trước ngày 25/11/2025</p>
-        <a href="mailto:youremail@example.com" class="button">Gửi phản hồi</a>
-    </section>
+    <!-- New masked component ydsZSP37vX -->
+    <div class="ydsZSP37vX" style="top: 90px; left: 31%; width: 170px; height: 300px;">
+        <div class="photo-component">
+            <div class="photo-bg-wrap"></div>
+        </div>
+    </div>
 
-    <footer>
-        <p>Thân ái, Long & Hiền</p>
-    </footer>
+    <div class="ydsZSP37vX" style="top: 75px; left: 68%; width: 170px; height: 300px;">
+        <div class="photo-component">
+            <div class="photo-bg-wrap"></div>
+        </div>
+    </div>
 
-    <script src="Scripts/Script.js"></script>
+    <div class="ydsZSP37vX" style="top: 90px; left: 50%; width: 100%; height: 1500px;">
+        <div class="photo-component">
+            <div class="photo-bg-wrap"></div>
+        </div>
+    </div>
+
 </body>
 </html>
