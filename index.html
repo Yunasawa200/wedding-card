@@ -1,195 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masked Image with Overlay</title>
+    <title>Thiệp Cưới Long & Hiền</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display&family=Great+Vibes&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            background-color: white; /* fallback for bottom fade */
-        }
-
-        /* Full-page background with fade to white */
-        .full-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/176c1b49-b240-447d-b5ad-fa724d4668c9.png");
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-            mask-composite: intersect;
-            -webkit-mask-composite: destination-in;
-        }
-
-        /* Main masked image */
-        .photo-component {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-mask-box-image-source: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
-            -webkit-mask-box-image-slice: 0 fill;
-            mask-image: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
-            mask-size: 100% 100%;
-            mask-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .photo-bg-wrap {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0;
-            /*border: 4px solid white;*/
+        * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Overlay / secondary image */
-        .overlay {
-            position: absolute;
-            top: 75px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 279px;
-            height: 92px;
-            z-index: 4;
-            cursor: default;
-            transition: 1.3s ease-out 0.2s;
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #fffdfb;
+            color: #2f3b52;
+            text-align: center;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        /* === Hero Section === */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            background: url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80") center/cover no-repeat;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end; /* push content to bottom */
+            align-items: center; /* center horizontally */
+            color: white;
+            padding-bottom: 10px;
         }
 
-        /* Figma-style extra components */
-        .extra-component {
-            position: absolute;
-            top: 0;
-            right: 0px;
-            width: 333px;
-            height: 418px;
-            z-index: 5;
-            cursor: default;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 1.3s ease-out 0.2s;
+            .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.35);
+            }
+
+            .hero h1 {
+                position: relative;
+                font-family: 'Great Vibes', cursive;
+                font-size: 80px;
+                letter-spacing: 2px;
+                z-index: 1;
+                animation: fadeInUp 2s ease;
+            }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-            .extra-component .photo-component {
-                -webkit-mask-box-image-source: none;
-                -webkit-mask-box-image-slice: 0 fill;
-                mask-image: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .extra-component .photo-bg-wrap {
-                background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/55347187-63ca-4b14-8de2-3d4ca51256ee.png");
-                border-radius: 0;
-            }
-
-        /* New masked component ydsZSP37vX (larger + centered) */
-        .ydsZSP37vX {
-            position: absolute;
-            transform: translateX(-50%); /* horizontally center */
-            /*top: 145px;*/
-            /*left: 34%;*/
-            /*width: 170px;*/
-            /*height: 300px;*/
-            z-index: 1;
-            cursor: default;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 1.3s ease-out 0.2s;
+        /* === Quote under hero === */
+        .quote {
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: #00417A;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            padding: 0px 40px 0px 40px;
+            font-weight: bold;
+            animation: fadeIn 2.2s ease;
         }
 
-            .ydsZSP37vX .photo-component {
-                -webkit-mask-box-image-source: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
-                -webkit-mask-box-image-slice: 0 fill;
-                mask-image: url("https://cdn.cinelove.me/resources/cropShapes/062_2y48xbvq2r2.png");
-                mask-size: 100% 100%;
-                mask-repeat: no-repeat;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
 
-            .ydsZSP37vX .photo-bg-wrap {
-                background-image: url("https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/83471352-a8ae-4ac1-8912-be1d511c433b.png?crop=20,6,35,53");
-                /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcfaNnuXQHmFukMH2dFbS25zxw5vQ8plEnsw&s");*/
-                border-radius: 0;
-                border: 2px solid white; /* reduced border size */
-                box-sizing: border-box;
+            to {
+                opacity: 1;
             }
-
-        .main-picture {
-            position: absolute;
-            top: 120px;
-            min-width: 300px;
-            min-height: 450px;
         }
+
+        /* === Content Section === */
+        .content {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .save-date {
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 26px;
+            color: #aa7c7c;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .date {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2f3b52;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: #aa7c7c;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* === Calendar Section === */
+        .calendar {
+            background: rgba(240, 230, 220, 0.45);
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            padding: 16px;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            backdrop-filter: blur(3px);
+        }
+
+            .calendar strong {
+                font-family: 'Playfair Display', serif;
+                font-size: 18px;
+                color: #5b5b5b;
+            }
+
+        table {
+            width: 100%;
+            margin-top: 12px;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-size: 12px;
+            color: #888;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding-bottom: 4px;
+        }
+
+        td {
+            padding: 8px;
+            font-size: 15px;
+            color: #2f3b52;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+            td:hover {
+                background: rgba(255, 220, 220, 0.3);
+            }
+
+        .heart {
+            color: #e63946;
+            font-size: 22px;
+            animation: pulse 1.4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.8;
+            }
+        }
+
+        /* === Footer Section === */
+        footer {
+            margin-top: 60px;
+            color: #2f3b52;
+        }
+
+            footer h4 {
+                font-size: 15px;
+                letter-spacing: 1px;
+                color: #888;
+                margin-bottom: 18px;
+            }
+
+            footer h2 {
+                font-size: 28px;
+                line-height: 1.6;
+            }
+
+            footer span {
+                font-family: 'Great Vibes', cursive;
+                font-size: 44px;
+                color: #aa7c7c;
+            }
     </style>
 </head>
 <body>
 
-    <!-- Full-page background with fade -->
-    <div class="full-bg"></div>
-
-    <!-- Main masked image -->
-    <div class="main-picture">
-        <div class="photo-component">
-            <div class="photo-bg-wrap" style="background-image: url('https://wallpapers.com/images/hd/nature-scenery-portrait-f4lsl6ohevep5674.jpg');"></div>
-        </div>
+    <div class="hero">
+        <h1>Long & Hiền</h1>
     </div>
 
-    <!-- Overlay image -->
-    <div class="overlay">
-        <div class="photo-bg-wrap" style="background-image: url('https://cdn.cinelove.me/templates/assets/e554cdff-72d4-4657-863a-68cf83b61fe3/3dbe9113-b78d-44e4-b62f-b561fd8e9c1e.png');"></div>
-    </div>
+    <p class="quote">QUYẾT ĐỊNH BÊN NHAU TRỌN ĐỜI</p>
 
-    <!-- Extra Figma-style component -->
-    <div class="extra-component">
-        <div class="photo-component">
-            <div class="photo-bg-wrap"></div>
-        </div>
-    </div>
+    <div class="content">
+        <div class="save-date">Save the Date</div>
+        <div class="divider"></div>
+        <div class="date">30 . 11 . 2025</div>
 
-    <!-- New masked component ydsZSP37vX -->
-    <div class="ydsZSP37vX" style="top: 90px; left: 31%; width: 170px; height: 300px;">
-        <div class="photo-component">
-            <div class="photo-bg-wrap"></div>
+        <div class="calendar">
+            <strong>Tháng 11 / 2025</strong>
+            <table>
+                <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
+                <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+                <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+                <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td><span class="heart">❤️</span></td><td>30</td></tr>
+            </table>
         </div>
-    </div>
 
-    <div class="ydsZSP37vX" style="top: 75px; left: 68%; width: 170px; height: 300px;">
-        <div class="photo-component">
-            <div class="photo-bg-wrap"></div>
-        </div>
-    </div>
-
-    <div class="ydsZSP37vX" style="top: 90px; left: 50%; width: 100%; height: 1500px;">
-        <div class="photo-component">
-            <div class="photo-bg-wrap"></div>
-        </div>
+        <footer>
+            <h4>TRÂN TRỌNG KÍNH MỜI</h4>
+            <h2>THÀNH LONG<br><span>&</span><br>DƯƠNG HIỀN</h2>
+        </footer>
     </div>
 
 </body>
