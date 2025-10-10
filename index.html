@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiệp Cưới Long & Hiền</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Nunito&display=swap" rel="stylesheet">
-    <link rel="stylesheet"href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <style>
         * {
             box-sizing: border-box;
@@ -366,7 +366,6 @@
             font-size: 14px;
             color: #7a8ba8;
             margin-top: 6px;
-            margin-bottom: 28px;
         }
 
         .place-title {
@@ -414,9 +413,113 @@
                 transform: translateY(0);
             }
     </style>
+    <style>
+        /* === Gift Section === */
+        .gift-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .gift-box {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff3f3, #ffe8e8);
+            border: 2px solid rgba(255, 200, 200, 0.7);
+            border-radius: 14px;
+            padding: 14px 26px;
+            font-size: 17px;
+            color: #aa7c7c;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 180, 180, 0.2);
+            transition: all 0.25s ease;
+            font-family: 'Playfair Display', serif;
+            animation: fadeInUp 1.5s ease;
+        }
+
+            .gift-box:hover {
+                transform: scale(1.05);
+                background: linear-gradient(135deg, #ffe8e8, #ffdcdc);
+                box-shadow: 0 6px 12px rgba(255, 150, 150, 0.3);
+            }
+
+        /* === QR Popup === */
+        .qr-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .qr-content {
+            background: #fffdfb;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+            animation: popupIn 0.4s ease;
+        }
+
+            .qr-content h3 {
+                color: #aa7c7c;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .qr-content p {
+                color: #555;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .qr-content img {
+                width: 180px;
+                height: 180px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+
+            .qr-content .note {
+                font-size: 13px;
+                color: #7a8ba8;
+                margin-top: 6px;
+                font-style: italic;
+            }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+            .close-btn:hover {
+                color: #d66a6a;
+            }
+
+        @keyframes popupIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <div class="hero">
         <h1>Long & Hiền</h1>
     </div>
@@ -429,7 +532,7 @@
 
         <div class="calendar reveal fade-up">
             <strong>Tháng 11 / 2025</strong>
-            <table>
+            <table> 
                 <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
                 <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
@@ -480,7 +583,7 @@
 
         <div class="wedding-info2 reveal fade-up">
             <p class="place-title">NƠI DIỄN RA HÔN LỄ</p>
-            <p class="address">Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng</p>
+            <p class="address" id="mapAddress">null</p>
 
             <div id="map"
                  style="
@@ -493,14 +596,26 @@
                   overflow: hidden;
                 "></div>
 
-            <a href="https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving"
-               target="_blank"
-               class="map-btn">
+            <a href="null" target="_blank" class="map-btn" id="mapNavigator">
                 CHỈ ĐƯỜNG
             </a>
         </div>
 
+        <div class="gift-section reveal fade-up">
+            <div class="gift-box" id="giftBox">
+                🎁 Gửi quà mừng cưới
+            </div>
 
+            <div class="qr-popup" id="qrPopup">
+                <div class="qr-content">
+                    <span class="close-btn" id="closeQR">&times;</span>
+                    <h3>💌 Gửi chút tình thân</h3>
+                    <p>Quét mã bên dưới để gửi lời chúc & món quà đến cô dâu chú rể 💖</p>
+                    <img src="Sources/Images/QR0.webp" alt="QR Code">
+                    <p class="note">Xin chân thành cảm ơn tấm lòng của bạn 🌸</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -537,21 +652,65 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // Coordinates for La Ngoại, Thanh Miện, Hải Phòng
-        const coords = [20.750467, 106.251851];
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get("type");
 
-        // Initialize the map
+        coords = [0, 0];
+
+        const mapNavigator = document.getElementById("mapNavigator");
+        const mapAddress = document.getElementById("mapAddress");
+
+        function onType0() {
+            coords = [20.750467, 106.251851];
+            mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
+            mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
+        }
+
+        function onType1() {
+            coords = [20.678933, 105.861385];
+            mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
+            mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
+        }
+
+        if (type === "0") {
+            onType0();
+        } else if (type === "1") {
+            onType1();
+        } else {
+            mapNavigator.href = "#";
+            mapNavigator.textContent = "Không có liên kết hợp lệ";
+            mapNavigator.style.background = "#999";
+            console.log("Invalid type parameter");
+        }
+
+        //-----Add map-----
+
         const map = L.map('map').setView(coords, 15);
 
-        // Add map tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '',
         }).addTo(map);
 
-        // Add marker
         const marker = L.marker(coords).addTo(map);
         marker.bindPopup("💒 Nơi diễn ra hôn lễ").openPopup();
     </script>
 
+    <script>
+        const giftBox = document.getElementById("giftBox");
+        const qrPopup = document.getElementById("qrPopup");
+        const closeQR = document.getElementById("closeQR");
+
+        giftBox.addEventListener("click", () => {
+            qrPopup.style.display = "flex";
+        });
+
+        closeQR.addEventListener("click", () => {
+            qrPopup.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === qrPopup) qrPopup.style.display = "none";
+        });
+    </script>
 </body>
 </html>
