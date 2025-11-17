@@ -4,9 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiệp Cưới Long & Hiền</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Nunito&family=Ballet&family=Markazi+Text&family=Imperial+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tinos&family=Parisienne&family=Mea+Culpa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="Styles/CoupleIntroduction.css"/>
+    <link rel="stylesheet" href="Styles/FamilyIntroduction.css"/>
 
+    <style>
+        .break-quote {
+            padding: 15px;
+            font-size: 12px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    </style>
+    <style>
+        .couple-section {
+            padding: 10px 5px 20px;
+            text-align: center;
+            color: #c63f3f;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* khung chứa cả 2 */
+        .couple-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4%; /* khoảng cách giữa 2 box */
+            flex-wrap: wrap;
+        }
+
+        /* mỗi box chiếm khoảng 45% chiều rộng */
+        .groom-box,
+        .bride-box {
+            width: 45%;
+            text-align: center;
+        }
+
+        /* so le nhẹ cho 2 bên */
+        .groom-box {
+            transform: translateY(0px);
+        }
+
+        .bride-box {
+            transform: translateY(0px);
+        }
+
+        .groom-photo {
+            background-image: url('Sources/Images/_NVT4543-2.jpg');
+        }
+
+        .bride-photo {
+            background-image: url('Sources/Images/_NVT4543-1.jpg');
+        }
+
+        /* ảnh cô dâu chú rể */
+        .photo {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            border-radius: 12px; /* rounded corners */
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* chữ */
+        .role {
+            font-size: 40px;
+            font-weight: 100;
+            color: rgba(50, 100, 34);
+            margin-bottom: -5px;
+            font-family: 'Mea Culpa', serif;
+        }
+
+        .name {
+            font-size: 22px;
+            color: rgba(50, 100, 34);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* responsive */
+        @media (max-width: 100px) {
+            .couple-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .groom-box, .bride-box {
+                width: 80%;
+                transform: none;
+            }
+        }
+
+    </style>
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +111,7 @@
         }
 
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Markazi Text', serif;
             background: #fffdfb;
             color: #2f3b52;
             text-align: center;
@@ -28,7 +124,7 @@
             position: relative;
             width: 100%;
             height: 85vh;
-            background: url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80") center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, #000 100%), url('Sources/Images/_NVT4500.webp') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -37,21 +133,38 @@
             padding-bottom: 10px;
         }
 
-            .hero::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.35);
-            }
+        .hh1 {
+            position: relative;
+            font-family: 'Great Vibes', cursive;
+            font-size: 50px;
+            letter-spacing: 2px;
+            z-index: 1;
+            font-weight: 100;
+            animation: fadeInUp 2s ease;
+        }
 
-            .hero h1 {
-                position: relative;
-                font-family: 'Great Vibes', cursive;
-                font-size: 80px;
-                letter-spacing: 2px;
-                z-index: 1;
-                animation: fadeInUp 2s ease;
-            }
+        .hh2 {
+            position: relative;
+            font-family: 'Tinos', cursive;
+            font-size: 20px;
+            letter-spacing: 2px;
+            z-index: 1;
+            font-weight: 100;
+            animation: fadeInUp 2s ease;
+        }
+
+        .hh3 {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Parisienne', cursive;
+            font-size: 100px;
+            letter-spacing: 2px;
+            z-index: 0;
+            font-weight: 100;
+            animation: fadeInUp 2s ease;
+            color: rgba(255, 255, 255, 0.3);
+        }
 
         @keyframes fadeInUp {
             from {
@@ -67,14 +180,15 @@
 
         /* === Quote === */
         .quote {
-            font-size: 18px;
+            font-size: 20px;
             letter-spacing: 1px;
-            color: #00417A;
+            color: rgba(50, 100, 34);
             margin-top: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             padding: 0 40px;
             font-weight: bold;
             animation: fadeIn 2.2s ease;
+            font-family: 'Tinos';
         }
 
         @keyframes fadeIn {
@@ -91,7 +205,7 @@
         .content {
             max-width: 650px;
             margin: 0 auto;
-            padding: 0 24px;
+/*            padding: 0 24px;*/
         }
 
         .save-date {
@@ -111,15 +225,12 @@
 
         /* === Countdown Timer === */
         .countdown-container {
-            margin: 20px auto 20px;
+            margin: 10px auto 0px;
             display: flex;
             justify-content: center;
             gap: 25px;
             background: rgba(255,255,255,0.5);
-            border: 1px solid rgba(0,0,0,0.05);
             border-radius: 16px;
-            padding: 20px 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             animation: fadeInUp 1.5s ease;
@@ -127,7 +238,7 @@
 
         .countdown-item {
             text-align: center;
-            color: #2b4e7c;
+            color: rgba(50, 100, 34);
         }
 
             .countdown-item span {
@@ -135,7 +246,7 @@
                 font-size: 25px;
                 font-weight: bold;
                 font-family: 'Nunito', sans-serif;
-                color: #5a7ea1;
+                color: rgba(50, 100, 34);
                 text-shadow: 0 2px 6px rgba(0,0,0,0.1);
                 animation: glowPulse 2s infinite ease-in-out;
             }
@@ -145,8 +256,43 @@
                 font-size: 14px;
                 letter-spacing: 1px;
                 margin-top: 4px;
-                color: #7a8ba8;
+                color: rgba(50, 100, 34);
             }
+
+
+        .countdown-section {
+            margin-top: 25px;
+        }
+
+        .countdown-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(50, 100, 34);
+            margin-top: 40px;
+            letter-spacing: 1px;
+        }
+
+        .wedding-info .countdown-container {
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .wedding-info .countdown-item span {
+            font-size: 22px;
+            font-weight: 700;
+            color: rgba(50, 100, 34);
+        }
+
+        .wedding-info .countdown-item small {
+            display: block;
+            font-size: 13px;
+            color: rgba(50, 100, 34);
+            margin-top: 3px;
+            font-weight: bold;
+        }
 
         @keyframes glowPulse {
             0%,100% {
@@ -160,14 +306,30 @@
 
         /* === Calendar Section === */
         .calendar {
-            background: rgba(255, 255, 255, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 16px;
+            position: relative;
+            color: #fff; /* example text color */
+            background: url('Sources/Images/_NVT4701.jpg') center/cover no-repeat;
+            overflow: hidden; /* ensures overlay stays inside */
             padding: 20px;
-            width: 100%;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(6px);
+        }
+
+            .calendar::before {
+                content: "";
+                position: absolute;
+                inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; */
+                background: rgba(0, 0, 0, 0.5); /* adjust opacity for desired darkness */
+                z-index: 0;
+            }
+
+            .calendar > * {
+                position: relative;
+                z-index: 1;
+            }
+
+        .calendar-title {
+            font-size: 50px;
+            font-family: 'Monsieur La Doulaise', serif;
+            font-weight: 100;
         }
 
         table {
@@ -177,8 +339,8 @@
         }
 
         th {
-            font-size: 12px;
-            color: #888;
+            font-size: 20px;
+            color: #fff;
             font-weight: 500;
             letter-spacing: 1px;
             padding-bottom: 4px;
@@ -186,8 +348,8 @@
 
         td {
             padding: 8px;
-            font-size: 15px;
-            color: #2f3b52;
+            font-size: 20px;
+            color: #fff;
             border-radius: 6px;
             transition: background 0.3s ease;
         }
@@ -212,7 +374,7 @@
                 content: "❤️";
                 position: absolute;
                 font-size: 28px;
-                opacity: 0.5;
+                opacity: 0.75;
             }
 
             .heart span {
@@ -242,13 +404,13 @@
             .invitation h4 {
                 font-size: 15px;
                 letter-spacing: 1px;
-                color: #00417A;
+                color: rgba(50, 100, 34);
                 margin-bottom: 25px;
             }
 
             .invitation h2 {
                 font-size: 36px;
-                color: #1f355e;
+                color: rgba(50, 100, 34);
                 line-height: 1.4;
                 font-weight: 700;
             }
@@ -295,22 +457,22 @@
             background: #ffffff;
             border-radius: 10px;
             padding: 30px 20px;
-            margin: 70px auto 0;
+            margin: 15px 20px 20px;
             max-width: 380px;
             text-align: center;
-            color: #1f355e;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
+            color: rgba(50, 100, 34);
+/*            box-shadow: 0 2px 10px rgba(0,0,0,0.08);*/
+/*            border: 1px solid rgba(0,0,0,0.05);*/
         }
 
         .wedding-info2 {
             background: #ffffff;
             border-radius: 10px;
             padding: 30px 20px;
-            margin: 0px auto 0;
+            margin: 0 20px 20px;
             max-width: 380px;
             text-align: center;
-            color: #1f355e;
+            color: rgba(50, 100, 34);
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.05);
         }
@@ -320,15 +482,15 @@
             line-height: 1.6;
             letter-spacing: 0.5px;
             font-weight: 600;
-            color: #2b4e7c;
+            color: rgba(50, 100, 34);
             margin-bottom: 18px;
         }
 
         .wedding-info h3 {
-            font-size: 22px;
+            font-size: 30px;
             font-weight: 800;
             letter-spacing: 1px;
-            color: #2b4e7c;
+            color: rgba(50, 100, 34);
             margin-bottom: 12px;
             font-family: 'Nunito', serif;
         }
@@ -339,7 +501,7 @@
             justify-content: center;
             gap: 14px;
             font-family: 'Playfair Display', serif;
-            color: #1f355e;
+            color: rgba(50, 100, 34);
             margin-bottom: 8px;
         }
 
@@ -357,36 +519,36 @@
             .date-box .day {
                 font-size: 54px;
                 font-weight: 700;
-                color: #1f355e;
+                color: rgba(50, 100, 34);
                 line-height: 1;
                 font-family: 'Nunito', serif;
             }
 
         .lunar {
             font-size: 14px;
-            color: #7a8ba8;
+            color: rgba(50, 100, 34);
             margin-top: 6px;
         }
 
         .place-title {
             font-size: 15px;
             font-weight: 700;
-            color: #1f355e;
+            color: rgba(50, 100, 34);
             margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
         .address {
             font-size: 14px;
-            color: #4a5c7a;
+            color: rgba(50, 100, 34);
             margin-bottom: 22px;
         }
 
         .map-btn {
             display: inline-block;
             background: #ffffff;
-            color: #2b4e7c;
-            border: 2px solid #2b4e7c;
+            color: rgba(50, 100, 34);
+            border: 2px solid rgba(50, 100, 34);
             padding: 8px 20px;
             border-radius: 25px;
             font-weight: 700;
@@ -397,7 +559,7 @@
         }
 
             .map-btn:hover {
-                background: #2b4e7c;
+                background: rgba(50, 100, 34);
                 color: #fff;
             }
 
@@ -487,7 +649,7 @@
 
             .qr-content .note {
                 font-size: 13px;
-                color: #7a8ba8;
+                color: rgba(50, 100, 34);
                 margin-top: 6px;
                 font-style: italic;
             }
@@ -518,21 +680,117 @@
             }
         }
     </style>
+    <style>
+
+    </style>
 </head>
 <body>
+    <!--<p id="guessField">AAAAA</p>-->
+
     <div class="hero">
-        <h1>Long & Hiền</h1>
+        <p class="hh1">We get married!</p>
+        <p class="hh2" style="margin: 10px 0 0 0">THÀNH LONG</p>
+        <div style="height: 10px"><p class="hh3" style="">&</p></div>
+        <p class="hh2" style="margin: 0 0 20px 0">DƯƠNG HIỀN</p>
     </div>
 
-    <p class="quote">QUYẾT ĐỊNH BÊN NHAU TRỌN ĐỜI</p>
+    <p class="quote">THƯ MỜI THAM DỰ LỄ CƯỚI</p>
+    <p class="quote" style="font-weight:100;font-size:15px;">Trân trọng kính mời đến dự buổi lễ cưới của</p>
+
+    <div class="couple-section reveal fade-up">
+        <div class="couple-container">
+            <!-- Chú rể -->
+            <div class="groom-box">
+                <p class="role">Cô dâu</p>
+                <h3 class="name">DƯƠNG HIỀN</h3>
+                <div class="photo bride-photo"></div>
+            </div>
+
+            <!-- Cô dâu -->
+            <div class="bride-box">
+                <div class="photo groom-photo"></div>
+                <p class="role">Chú rể</p>
+                <h3 class="name">THÀNH LONG</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="break-quote">
+        Tình yêu của anh và em là một hành trình ký diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại - lễ cưới của chúng mình. 
+        Lễ cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới - nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và 
+        cùng nắm tay nhau đi đến cuối con đường mang tên hạnh phúc.
+    </div>
+
+    <div>
+        <img style="width:100%;height:250px;" src='Sources/Images/_NVT4701.jpg'/>
+    </div>
+
+    <div class="family-section reveal fade-up">
+        <div class="families-horizontal">
+            <div class="family-box">
+                <h4>NHÀ TRAI</h4>
+                <p><strong>Bố:</strong> Bùi Văn Quang</p>
+                <p><strong>Mẹ:</strong> Vũ Thị Hà</p>
+            </div>
+
+            <div class="family-box">
+                <h4>NHÀ GÁI</h4>
+                <p><strong>Bố:</strong> Dương Xuân Nam</p>
+                <p><strong>Mẹ:</strong> Nguyễn Thị Thu</p>
+            </div>
+        </div>
+    </div>
 
     <div class="content">
         <div class="save-date">Save the Date</div>
-        <div class="date">30 . 11 . 2025</div>
+
+        <!--<div class="invitation reveal fade-up">
+        <h4>THÂN MỜI ĐẾN DỰ LỄ CƯỚI THÂN MẬT CỦA CHÚNG TÔI</h4>
+        <h2>THÀNH LONG<br><span>&</span><br>DƯƠNG HIỀN</h2>
+        <div class="photos reveal zoom-in">
+            <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 1">
+            <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 2">
+        </div>
+    </div>-->
+
+        <div class="wedding-info reveal fade-up">
+            <p class="time-text">LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO</p>
+            <h3>CHỦ NHẬT</h3>
+
+            <div class="date-box">
+                <div class="month">THÁNG 11</div>
+                <div class="day">30</div>
+                <div class="year">NĂM 2025</div>
+            </div>
+
+            <p class="lunar">(Tức ngày 11 tháng 10 năm Ất Tỵ)</p>
+
+            <div class="countdown-section">
+                <h4 class="countdown-title">ĐẾM NGƯỢC</h4>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days">0</span>
+                        <small>Ngày</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">0</span>
+                        <small>Giờ</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">0</span>
+                        <small>Phút</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">0</span>
+                        <small>Giây</small>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="calendar reveal fade-up">
-            <strong>Tháng 11 / 2025</strong>
-            <table> 
+            <strong class="calendar-title">November</strong>
+            <table>
                 <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
                 <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
@@ -540,45 +798,6 @@
                 <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
                 <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td><div class="heart"><span>30</span></div></td></tr>
             </table>
-        </div>
-
-        <div class="invitation reveal fade-up">
-            <h4>THÂN MỜI ĐẾN DỰ LỄ CƯỚI THÂN MẬT CỦA CHÚNG TÔI</h4>
-            <h2>THÀNH LONG<br><span>&</span><br>DƯƠNG HIỀN</h2>
-            <div class="photos reveal zoom-in">
-                <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 1">
-                <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 2">
-            </div>
-        </div>
-
-        <div class="wedding-info reveal fade-up">
-            <p class="time-text">LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO</p>
-            <h3>CHỦ NHẬT</h3>
-            <div class="date-box">
-                <div class="month">THÁNG 11</div>
-                <div class="day">30</div>
-                <div class="year">NĂM 2025</div>
-            </div>
-            <p class="lunar">(Tức ngày 11 tháng 10 năm Ất Tỵ)</p>
-        </div>
-
-        <div class="countdown-container reveal fade-up">
-            <div class="countdown-item">
-                <span id="days">0</span>
-                <small>Ngày</small>
-            </div>
-            <div class="countdown-item">
-                <span id="hours">0</span>
-                <small>Giờ</small>
-            </div>
-            <div class="countdown-item">
-                <span id="minutes">0</span>
-                <small>Phút</small>
-            </div>
-            <div class="countdown-item">
-                <span id="seconds">0</span>
-                <small>Giây</small>
-            </div>
         </div>
 
         <div class="wedding-info2 reveal fade-up">
@@ -611,7 +830,7 @@
                     <span class="close-btn" id="closeQR">&times;</span>
                     <h3>💌 Gửi chút tình thân</h3>
                     <p>Quét mã bên dưới để gửi lời chúc & món quà đến cô dâu chú rể 💖</p>
-                    <img src="Sources/Images/QR0.webp" alt="QR Code">
+                    <img src="Sources/Images/QR0.webp" alt="QR Code" id="qrCode">
                     <p class="note">Xin chân thành cảm ơn tấm lòng của bạn 🌸</p>
                 </div>
             </div>
@@ -654,22 +873,29 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const type = params.get("type");
+        const guess = params.get("guess");
 
         coords = [0, 0];
 
+        const guessField = document.getElementById("guessField");
+        guessField.textContent = "Mời " + guess + " Lìn";
+
         const mapNavigator = document.getElementById("mapNavigator");
         const mapAddress = document.getElementById("mapAddress");
+        const qrCode = document.getElementById("qrCode");
 
         function onType0() {
             coords = [20.750467, 106.251851];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
+            qrCode.src = "https://raw.githubusercontent.com/yunasawa200/wedding-card/main/Sources/Images/QR0.webp";
         }
 
         function onType1() {
             coords = [20.678933, 105.861385];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
+            qrCode.src = "https://raw.githubusercontent.com/yunasawa200/wedding-card/main/Sources/Images/QR0.webp";
         }
 
         if (type === "0") {
