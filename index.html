@@ -192,7 +192,7 @@
         }
 
         .guess-name {
-            font-size: 30px;
+            font-size: 40px;
             font-family: 'Great Vibes';
             color: rgba(50, 100, 34);
         }
@@ -780,6 +780,61 @@
             }
         }
     </style>
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+            .lightbox-content img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 36px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .lightbox .nav {
+            position: absolute;
+            top: 105%;
+            transform: translateY(-50%);
+            font-size: 48px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            z-index: 10000;
+            padding: 10px;
+        }
+
+        .lightbox .prev {
+            left: 0px;
+        }
+
+        .lightbox .next {
+            right: 0px;
+        }
+    </style>
+
 </head>
 <body>
     <div class="hero">
@@ -855,14 +910,14 @@
         </div>
 
         <div class="calendar fade-up">
-            <strong class="calendar-title">November</strong>
+            <strong class="calendar-title">December</strong>
             <table>
                 <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
-                <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
-                <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
-                <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
-                <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td><div class="heart"><span>30</span></div></td></tr>
+                <tr><td><div class="heart"><span>1</span></div></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+                <tr><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
             </table>
         </div>
 
@@ -913,6 +968,15 @@
         <div class="film-strip"></div>
         <div class="images-row" id="images"></div>
 
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" />
+            <div class="nav prev">&#10094;</div>
+            <div class="nav next">&#10095;</div>
+        </div>
     </div>
 
     <script>
@@ -970,7 +1034,7 @@
         });
 
         // Countdown timer
-        const targetDate = new Date("November 30, 2025 00:00:00").getTime();
+        const targetDate = new Date("December 1, 2025 00:00:00").getTime();
         const timer = setInterval(() => {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -1041,21 +1105,62 @@
     </script>
 
     <script>
-        const giftBox = document.getElementById("giftBox");
-        const qrPopup = document.getElementById("qrPopup");
-        const closeQR = document.getElementById("closeQR");
+        const filmContainer = document.querySelector('.film-container');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox .close');
+        const prevBtn = document.querySelector('.lightbox .prev');
+        const nextBtn = document.querySelector('.lightbox .next');
 
-        giftBox.addEventListener("click", () => {
-            qrPopup.style.display = "flex";
+        let currentIndex = 0;
+
+        // Flatten your images array for lightbox
+        const lightboxImages = imgs; // reuse your film strip images
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightboxImg.src = lightboxImages[currentIndex];
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            lightboxImg.src = lightboxImages[currentIndex];
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % lightboxImages.length;
+            lightboxImg.src = lightboxImages[currentIndex];
+        }
+
+        // Open lightbox when clicking on any film image
+        document.querySelectorAll('.cell').forEach((cell, index) => {
+            cell.addEventListener('click', () => openLightbox(index));
         });
 
-        closeQR.addEventListener("click", () => {
-            qrPopup.style.display = "none";
+        // Navigation
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrev);
+        nextBtn.addEventListener('click', showNext);
+
+        // Close when clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
         });
 
-        window.addEventListener("click", (e) => {
-            if (e.target === qrPopup) qrPopup.style.display = "none";
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'Escape') closeLightbox();
+            }
         });
     </script>
+
 </body>
 </html>
