@@ -876,7 +876,7 @@
     </div>
 
     <div>
-        <img style="width:100%;" src='sources/images/n4739.webp' loading="lazy" />
+        <img style="width:100%;" src='sources/images/n4739.webp'/>
     </div>
 
     <div class="family-section reveal fade-up">
@@ -1145,7 +1145,7 @@
 
         // Open lightbox when clicking on any film image
         document.querySelectorAll('.cell').forEach((cell, index) => {
-            cell.addEventListener('click', () => openLightbox(index));
+            cell.addEventListener('click', () => openLightbox(0));
         });
 
         // Navigation
