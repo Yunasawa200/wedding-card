@@ -464,7 +464,6 @@
             background: #ffffff;
             border-radius: 10px;
             margin: 30px 20px 20px;
-            max-width: 380px;
             text-align: center;
             color: rgba(50, 100, 34);
         }
@@ -474,7 +473,6 @@
             border-radius: 10px;
             padding: 30px 20px;
             margin: 0 20px 20px;
-            max-width: 380px;
             text-align: center;
             color: rgba(50, 100, 34);
         }
@@ -727,10 +725,14 @@
         }
     </style>
     <style>
-        /* Container that holds the whole scrolling system */
+        .film-border {
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            align-content: center;
+        }
+
         .film-container {
-            top: 200px;
-            left: 0;
             width: 200%;
             height: 300px;
             animation: moveStrip 10s linear infinite;
@@ -874,7 +876,7 @@
     </div>
 
     <div>
-        <img style="width:100%;" src='sources/images/n4739.webp' />
+        <img style="width:100%;" src='sources/images/n4739.webp' loading="lazy" />
     </div>
 
     <div class="family-section reveal fade-up">
@@ -963,11 +965,11 @@
         </div>
     </div>
 
-    <div class="film-container">
-
-        <div class="film-strip"></div>
-        <div class="images-row" id="images"></div>
-
+    <div class="film-border">
+        <div class="film-container">
+            <div class="film-strip"></div>
+            <div class="images-row" id="images"></div>
+        </div>
     </div>
 
     <div id="lightbox" class="lightbox">
