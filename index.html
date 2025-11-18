@@ -726,10 +726,10 @@
     </style>
     <style>
         .film-border {
-            height: 400px;
             width: 100%;
+            height: 400px;
             overflow: hidden;
-            align-content: center;
+            position: relative;
         }
 
         .film-container {
@@ -967,8 +967,13 @@
 
     <div class="film-border">
         <div class="film-container">
+            <div class="images-row" id="images">
+                <!-- JS will duplicate images here -->
+            </div>
+            <div class="images-row" id="images-copy">
+                <!-- duplicate of images for seamless loop -->
+            </div>
             <div class="film-strip"></div>
-            <div class="images-row" id="images"></div>
         </div>
     </div>
 
@@ -1007,22 +1012,21 @@
             "sources/images/rolls/n4758.webp",
         ];
 
-        const row = document.getElementById("images");
+        const row1 = document.getElementById("images");
+        const row2 = document.getElementById("images-copy");
 
-        // Calculate how many cells are needed to fill the width
-        const cellWidth = 150; // (110 image + 22 margin left + 22 margin right)
-        const count = Math.ceil(window.innerWidth / cellWidth) * 2;
-
-        for (let i = 0; i < count; i++) {
-            const cell = document.createElement("div");
-            cell.className = "cell";
-
-            // pick image in order
-            const imgIndex = i % imgs.length; // cycles through 0..imgs.length-1
-            cell.style.backgroundImage = `url("${imgs[imgIndex]}")`;
-
-            row.appendChild(cell);
+        function createCells(container) {
+            imgs.forEach(src => {
+                const cell = document.createElement("div");
+                cell.className = "cell";
+                cell.style.backgroundImage = `url("${src}")`;
+                container.appendChild(cell);
+            });
         }
+
+        // Fill both rows
+        createCells(row1);
+        createCells(row2);
     </script>
 
     <script>
