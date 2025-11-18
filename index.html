@@ -13,14 +13,14 @@
     <style>
         .break-quote {
             padding: 15px;
-            font-size: 12px;
+            font-size: 15px;
             text-align: justify;
-            text-justify: inter-word;
+            color: rgba(50, 100, 34);
         }
     </style>
     <style>
         .couple-section {
-            padding: 10px 5px 20px;
+            padding: 20px 5px 20px;
             text-align: center;
             color: #c63f3f;
             max-width: 500px;
@@ -87,6 +87,7 @@
             margin-bottom: 6px;
             letter-spacing: 1px;
             font-family: 'Playfair Display', serif;
+            font-weight: 100;
         }
 
         /* responsive */
@@ -124,7 +125,7 @@
             position: relative;
             width: 100%;
             height: 85vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, #000 100%), url('Sources/Images/_NVT4500.webp') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, #000 100%), url('Sources/Images/_NVT4500.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -158,7 +159,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'Parisienne', cursive;
-            font-size: 100px;
+            font-size: 120px;
             letter-spacing: 2px;
             z-index: 0;
             font-weight: 100;
@@ -184,11 +185,17 @@
             letter-spacing: 1px;
             color: rgba(50, 100, 34);
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding: 0 40px;
             font-weight: bold;
             animation: fadeIn 2.2s ease;
             font-family: 'Tinos';
+        }
+
+        .guess-name {
+            font-size: 30px;
+            font-family: 'Great Vibes';
+            color: rgba(50, 100, 34);
         }
 
         @keyframes fadeIn {
@@ -210,10 +217,10 @@
 
         .save-date {
             font-family: 'Monsieur La Doulaise', cursive;
-            font-size: 26px;
-            color: #aa7c7c;
+            font-size: 40px;
+            color: rgba(50, 100, 34);
+            margin-top: 10px;
             margin-bottom: -5px;
-            font-weight: bold;
         }
 
         .date {
@@ -261,7 +268,7 @@
 
 
         .countdown-section {
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .countdown-title {
@@ -311,6 +318,7 @@
             background: url('Sources/Images/_NVT4701.jpg') center/cover no-repeat;
             overflow: hidden; /* ensures overlay stays inside */
             padding: 20px;
+            margin: 30px 0 0 0;
         }
 
             .calendar::before {
@@ -456,13 +464,10 @@
         .wedding-info {
             background: #ffffff;
             border-radius: 10px;
-            padding: 30px 20px;
-            margin: 15px 20px 20px;
+            margin: 30px 20px 20px;
             max-width: 380px;
             text-align: center;
             color: rgba(50, 100, 34);
-/*            box-shadow: 0 2px 10px rgba(0,0,0,0.08);*/
-/*            border: 1px solid rgba(0,0,0,0.05);*/
         }
 
         .wedding-info2 {
@@ -473,8 +478,6 @@
             max-width: 380px;
             text-align: center;
             color: rgba(50, 100, 34);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .wedding-info .time-text {
@@ -491,7 +494,6 @@
             font-weight: 800;
             letter-spacing: 1px;
             color: rgba(50, 100, 34);
-            margin-bottom: 12px;
             font-family: 'Nunito', serif;
         }
 
@@ -525,7 +527,7 @@
             }
 
         .lunar {
-            font-size: 14px;
+            font-size: 20px;
             color: rgba(50, 100, 34);
             margin-top: 6px;
         }
@@ -539,7 +541,7 @@
         }
 
         .address {
-            font-size: 14px;
+            font-size: 20px;
             color: rgba(50, 100, 34);
             margin-bottom: 22px;
         }
@@ -553,9 +555,10 @@
             border-radius: 25px;
             font-weight: 700;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 20px;
             letter-spacing: 1px;
             transition: all 0.25s ease;
+            margin: 10px 0 0 0;
         }
 
             .map-btn:hover {
@@ -568,6 +571,7 @@
             opacity: 0;
             transform: translateY(40px);
             transition: all 1s ease;
+            margin: 10px 0 0 0;
         }
 
             .reveal.visible {
@@ -681,12 +685,52 @@
         }
     </style>
     <style>
+        .family-section {
+            padding: 0 20px 0 20px;
+            margin: 40px auto 30px;
+            max-width: 800px;
+            text-align: left;
+            color: rgba(50, 100, 34);
+        }
+
+        /* Hai hộp nằm ngang, luôn giữa màn hình */
+        .families-horizontal {
+            display: flex;
+            justify-content: center; /* canh giữa 2 box */
+            align-items: flex-start;
+            gap: 30px; /* khoảng cách cố định giữa 2 box */
+            flex-wrap: wrap; /* khi màn hình nhỏ sẽ xuống hàng */
+        }
+
+        /* Hộp thông tin */
+        .family-box {
+            background: rgba(255,255,255,0.6);
+            text-align: left;
+        }
+
+            .family-box h4 {
+                font-size: 20px;
+                font-weight: 600;
+                color: rgba(50, 100, 34);
+                margin-bottom: 8px;
+                letter-spacing: 1px;
+                text-align: left;
+                font-family: 'Tinos';
+            }
+
+            .family-box p {
+                font-size: 15px;
+                color: rgba(50, 100, 34);
+                margin: 4px 0;
+                text-align: left;
+                font-family: 'Tinos';
+            }
+
+        }
 
     </style>
 </head>
 <body>
-    <!--<p id="guessField">AAAAA</p>-->
-
     <div class="hero">
         <p class="hh1">We get married!</p>
         <p class="hh2" style="margin: 10px 0 0 0">THÀNH LONG</p>
@@ -695,7 +739,9 @@
     </div>
 
     <p class="quote">THƯ MỜI THAM DỰ LỄ CƯỚI</p>
-    <p class="quote" style="font-weight:100;font-size:15px;">Trân trọng kính mời đến dự buổi lễ cưới của</p>
+    <p class="quote" style="font-weight:100;font-size:15px;margin-top: 0px">Trân trọng kính mời</p>
+    <p id="guessField" class="guess-name">AAAAA</p>
+    <p class="quote" style="font-weight:100;font-size:15px;margin-top: 10px">đến dự buổi lễ cưới của</p>
 
     <div class="couple-section reveal fade-up">
         <div class="couple-container">
@@ -716,27 +762,27 @@
     </div>
 
     <div class="break-quote">
-        Tình yêu của anh và em là một hành trình ký diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại - lễ cưới của chúng mình. 
-        Lễ cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới - nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và 
+        Tình yêu của anh và em là một hành trình ký diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại - lễ cưới của chúng mình.
+        Lễ cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới - nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và
         cùng nắm tay nhau đi đến cuối con đường mang tên hạnh phúc.
     </div>
 
     <div>
-        <img style="width:100%;height:250px;" src='Sources/Images/_NVT4701.jpg'/>
+        <img style="width:100%;" src='Sources/Images/_NVT4739.jpg' />
     </div>
 
     <div class="family-section reveal fade-up">
         <div class="families-horizontal">
             <div class="family-box">
                 <h4>NHÀ TRAI</h4>
-                <p><strong>Bố:</strong> Bùi Văn Quang</p>
-                <p><strong>Mẹ:</strong> Vũ Thị Hà</p>
+                <p>Bố. Bùi Văn Quang</p>
+                <p>Mẹ. Vũ Thị Hà</p>
             </div>
 
             <div class="family-box">
                 <h4>NHÀ GÁI</h4>
-                <p><strong>Bố:</strong> Dương Xuân Nam</p>
-                <p><strong>Mẹ:</strong> Nguyễn Thị Thu</p>
+                <p>Bố. Dương Xuân Nam</p>
+                <p>Mẹ. Nguyễn Thị Thu</p>
             </div>
         </div>
     </div>
@@ -744,51 +790,20 @@
     <div class="content">
         <div class="save-date">Save the Date</div>
 
-        <!--<div class="invitation reveal fade-up">
-        <h4>THÂN MỜI ĐẾN DỰ LỄ CƯỚI THÂN MẬT CỦA CHÚNG TÔI</h4>
-        <h2>THÀNH LONG<br><span>&</span><br>DƯƠNG HIỀN</h2>
-        <div class="photos reveal zoom-in">
-            <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 1">
-            <img src="https://cdn.cinelove.me/uploads/b6f19e05-b42b-4cbc-add1-0b96a6ff4035/028d7afe-7e49-4874-8f65-f0910f1f141b.jpg" alt="Photo 2">
-        </div>
-    </div>-->
-
         <div class="wedding-info reveal fade-up">
-            <p class="time-text">LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO</p>
-            <h3>CHỦ NHẬT</h3>
+            <p class="quote" style="padding: 0px;margin-bottom: 30px;">LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO</p>
+            <h3>THỨ HAI</h3>
 
             <div class="date-box">
-                <div class="month">THÁNG 11</div>
-                <div class="day">30</div>
+                <div class="month">THÁNG 12</div>
+                <div class="day">1</div>
                 <div class="year">NĂM 2025</div>
             </div>
 
-            <p class="lunar">(Tức ngày 11 tháng 10 năm Ất Tỵ)</p>
-
-            <div class="countdown-section">
-                <h4 class="countdown-title">ĐẾM NGƯỢC</h4>
-                <div class="countdown-container">
-                    <div class="countdown-item">
-                        <span id="days">0</span>
-                        <small>Ngày</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">0</span>
-                        <small>Giờ</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">0</span>
-                        <small>Phút</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">0</span>
-                        <small>Giây</small>
-                    </div>
-                </div>
-            </div>
+            <p class="lunar">(Tức ngày 12 tháng 10 năm Ất Tỵ)</p>
         </div>
 
-        <div class="calendar reveal fade-up">
+        <div class="calendar fade-up">
             <strong class="calendar-title">November</strong>
             <table>
                 <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
@@ -800,40 +815,45 @@
             </table>
         </div>
 
-        <div class="wedding-info2 reveal fade-up">
-            <p class="place-title">NƠI DIỄN RA HÔN LỄ</p>
+        <div class="countdown-section">
+            <h4 class="quote">ĐẾM NGƯỢC</h4>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days">0</span>
+                    <small>Ngày</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">0</span>
+                    <small>Giờ</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">0</span>
+                    <small>Phút</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">0</span>
+                    <small>Giây</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="wedding-info2 fade-up">
+            <p class="quote">NƠI DIỄN RA HÔN LỄ</p>
             <p class="address" id="mapAddress">null</p>
 
             <div id="map"
                  style="
                   width: 100%;
-                  height: 150px;
+                  height: 200px;
                   border-radius: 12px;
                   margin: 16px 0;
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                  border: 2px solid rgba(0, 0, 0, 0.05);
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
                   overflow: hidden;
                 "></div>
 
             <a href="null" target="_blank" class="map-btn" id="mapNavigator">
                 CHỈ ĐƯỜNG
             </a>
-        </div>
-
-        <div class="gift-section reveal fade-up">
-            <div class="gift-box" id="giftBox">
-                🎁 Gửi quà mừng cưới
-            </div>
-
-            <div class="qr-popup" id="qrPopup">
-                <div class="qr-content">
-                    <span class="close-btn" id="closeQR">&times;</span>
-                    <h3>💌 Gửi chút tình thân</h3>
-                    <p>Quét mã bên dưới để gửi lời chúc & món quà đến cô dâu chú rể 💖</p>
-                    <img src="Sources/Images/QR0.webp" alt="QR Code" id="qrCode">
-                    <p class="note">Xin chân thành cảm ơn tấm lòng của bạn 🌸</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -878,24 +898,21 @@
         coords = [0, 0];
 
         const guessField = document.getElementById("guessField");
-        guessField.textContent = "Mời " + guess + " Lìn";
+        guessField.textContent = guess;
 
         const mapNavigator = document.getElementById("mapNavigator");
         const mapAddress = document.getElementById("mapAddress");
-        const qrCode = document.getElementById("qrCode");
 
         function onType0() {
             coords = [20.750467, 106.251851];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
-            qrCode.src = "https://raw.githubusercontent.com/yunasawa200/wedding-card/main/Sources/Images/QR0.webp";
         }
 
         function onType1() {
             coords = [20.678933, 105.861385];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
-            qrCode.src = "https://raw.githubusercontent.com/yunasawa200/wedding-card/main/Sources/Images/QR0.webp";
         }
 
         if (type === "0") {
