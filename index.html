@@ -116,7 +116,7 @@
             color: #2f3b52;
             text-align: center;
             overflow-x: hidden;
-            padding-bottom: 100px;
+            padding-bottom: 50px;
         }
 
         /* === Hero Section === */
@@ -154,9 +154,9 @@
         }
 
         .hh3 {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%, -50%);
+/*            position: absolute;*/
+/*            left: 50%;*/
+/*            transform: translate(-50%, -50%);*/
             font-family: 'Parisienne', cursive;
             font-size: 120px;
             letter-spacing: 2px;
@@ -164,6 +164,13 @@
             font-weight: 100;
             animation: fadeInUp 2s ease;
             color: rgba(255, 255, 255, 0.3);
+        }
+
+        .amp-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 91%;
+            transform: translate(-50%, -50%);
         }
 
         @keyframes fadeInUp {
@@ -487,11 +494,12 @@
         }
 
         .wedding-info h3 {
-            font-size: 30px;
-            font-weight: 800;
+            padding-bottom: 10px;
+            font-size: 17px;
             letter-spacing: 1px;
             color: rgba(50, 100, 34);
             font-family: 'Nunito', serif;
+            font-weight: 100;
         }
 
         .date-box {
@@ -507,7 +515,7 @@
             .date-box .month,
             .date-box .year {
                 font-size: 15px;
-                font-weight: bold;
+/*                font-weight: bold;*/
                 border-top: 1px solid #b0c1d9;
                 border-bottom: 1px solid #b0c1d9;
                 padding: 6px 10px;
@@ -516,7 +524,7 @@
             }
 
             .date-box .day {
-                font-size: 54px;
+                font-size: 45px;
                 font-weight: 700;
                 color: rgba(50, 100, 34);
                 line-height: 1;
@@ -524,9 +532,10 @@
             }
 
         .lunar {
-            font-size: 20px;
+            font-size: 15px;
             color: rgba(50, 100, 34);
             margin-top: 6px;
+            font-family: 'Tinos';
         }
 
         .place-title {
@@ -537,10 +546,19 @@
             letter-spacing: 1px;
         }
 
-        .address {
+        .address1 {
             font-size: 20px;
             color: rgba(50, 100, 34);
+            margin-bottom: 10px;
+            font-family: 'Nunito';
+            font-weight: bold;
+        }
+        
+        .address2 {
+            font-size: 15px;
+            color: rgba(50, 100, 34);
             margin-bottom: 22px;
+            font-family: 'Nunito';
         }
 
         .map-btn {
@@ -552,10 +570,11 @@
             border-radius: 25px;
             font-weight: 700;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 15px;
             letter-spacing: 1px;
             transition: all 0.25s ease;
             margin: 10px 0 0 0;
+            font-family: 'Nunito', serif;
         }
 
             .map-btn:hover {
@@ -575,111 +594,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-    </style>
-    <style>
-        /* === Gift Section === */
-        .gift-section {
-            margin-top: 80px;
-            text-align: center;
-        }
-
-        .gift-box {
-            display: inline-block;
-            background: linear-gradient(135deg, #fff3f3, #ffe8e8);
-            border: 2px solid rgba(255, 200, 200, 0.7);
-            border-radius: 14px;
-            padding: 14px 26px;
-            font-size: 17px;
-            color: #aa7c7c;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(255, 180, 180, 0.2);
-            transition: all 0.25s ease;
-            font-family: 'Playfair Display', serif;
-            animation: fadeInUp 1.5s ease;
-        }
-
-            .gift-box:hover {
-                transform: scale(1.05);
-                background: linear-gradient(135deg, #ffe8e8, #ffdcdc);
-                box-shadow: 0 6px 12px rgba(255, 150, 150, 0.3);
-            }
-
-        /* === QR Popup === */
-        .qr-popup {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            backdrop-filter: blur(6px);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .qr-content {
-            background: #fffdfb;
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            width: 300px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            position: relative;
-            animation: popupIn 0.4s ease;
-        }
-
-            .qr-content h3 {
-                color: #aa7c7c;
-                font-size: 20px;
-                margin-bottom: 10px;
-            }
-
-            .qr-content p {
-                color: #555;
-                font-size: 14px;
-                margin-bottom: 12px;
-            }
-
-            .qr-content img {
-                width: 180px;
-                height: 180px;
-                border-radius: 8px;
-                border: 1px solid #ddd;
-                margin-bottom: 12px;
-            }
-
-            .qr-content .note {
-                font-size: 13px;
-                color: rgba(50, 100, 34);
-                margin-top: 6px;
-                font-style: italic;
-            }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 22px;
-            color: #888;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-            .close-btn:hover {
-                color: #d66a6a;
-            }
-
-        @keyframes popupIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
     </style>
     <style>
         .family-section {
@@ -722,6 +636,12 @@
                 text-align: left;
                 font-family: 'Tinos';
             }
+
+        .swap-order .trai {
+            order: 2;
+        }
+        .swap-order .gai {
+            order: 1;
         }
     </style>
     <style>
@@ -836,20 +756,56 @@
             right: 0px;
         }
     </style>
+    <style>
+        .gallery {
+            column-count: 4; /* number of columns */
+            column-gap: 12px; /* spacing between columns */
+            padding: 12px;
+        }
 
+            .gallery img {
+                width: 100%;
+                margin-bottom: 12px;
+                border-radius: 10px;
+                display: block;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+
+                .gallery img.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+        @media {
+            .gallery {
+                column-count: 3;
+            }
+        }
+    </style>
+    <style>
+        .thank-you {
+            padding: 0 20px 0 20px;
+            font-size: 20px;
+            text-align: center;
+            color: rgba(50, 100, 34);
+        }
+    </style>
 </head>
 <body>
     <div class="hero">
         <p class="hh1">We get married!</p>
         <p class="hh2" style="margin: 10px 0 0 0">THÀNH LONG</p>
-        <div style="height: 10px"><p class="hh3" style="">&</p></div>
+        <!--<div style="height: 10px"><p class="hh3">&</p></div>-->
+        <div class="amp-wrapper"><p class="hh3">&</p></div>
         <p class="hh2" style="margin: 0 0 20px 0">DƯƠNG HIỀN</p>
     </div>
 
-    <p class="quote">THƯ MỜI THAM DỰ LỄ CƯỚI</p>
+    <p class="quote" id="greeting-quote">THƯ MỜI THAM DỰ LỄ VU QUY</p>
     <p class="quote" style="font-weight:100;font-size:15px;margin-top: 0px">Trân trọng kính mời</p>
     <p id="guessField" class="guess-name">AAAAA</p>
-    <p class="quote" style="font-weight:100;font-size:15px;margin-top: 10px">đến dự buổi lễ cưới của</p>
+    <p id="greeting-invite" class="quote" style="font-weight:100;font-size:15px;margin-top: 10px">đến dự buổi lễ vu quy của</p>
 
     <div class="couple-section reveal fade-up">
         <div class="couple-container">
@@ -869,49 +825,47 @@
         </div>
     </div>
 
-    <div class="break-quote">
+    <!--<div class="break-quote">
         Tình yêu của anh và em là một hành trình ký diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại - lễ cưới của chúng mình.
         Lễ cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới - nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và
         cùng nắm tay nhau đi đến cuối con đường mang tên hạnh phúc.
-    </div>
+    </div>-->
 
     <div>
-        <img style="width:100%;" src='sources/images/n4739.webp'/>
-    </div>
-
-    <div class="family-section reveal fade-up">
-        <div class="families-horizontal">
-            <div class="family-box">
-                <h4>NHÀ TRAI</h4>
-                <p>Bố. Bùi Văn Quang</p>
-                <p>Mẹ. Vũ Thị Hà</p>
-            </div>
-
-            <div class="family-box">
-                <h4>NHÀ GÁI</h4>
-                <p>Bố. Dương Xuân Nam</p>
-                <p>Mẹ. Nguyễn Thị Thu</p>
-            </div>
-        </div>
+        <img class="reveal" style="width:100%;" src='sources/images/n4739.webp' />
     </div>
 
     <div class="content">
-        <div class="save-date">Save the Date</div>
+        <div class="save-date reveal">Save the Date</div>
 
         <div class="wedding-info reveal fade-up">
-            <p class="quote" style="padding: 0px;margin-bottom: 30px;">LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO</p>
-            <h3>THỨ HAI</h3>
+            <p class="quote" style="padding: 0px;margin-bottom: 20px;">BỮA CƠM THÂN MẬT</p>
+            <h3 id="time-eat">Vào lúc 10:30</h3>
 
             <div class="date-box">
-                <div class="month">THÁNG 12</div>
-                <div class="day">1</div>
+                <div class="month">Chủ Nhật</div>
+                <div class="day">30/11</div>
+                <div class="year">NĂM 2025</div>
+            </div>
+
+            <p class="lunar">(Tức ngày 11 tháng 10 năm Ất Tỵ)</p>
+        </div>
+        <div style="height: 20px"></div>
+
+        <div class="wedding-info reveal fade-up">
+            <p id="time-quote" class="quote" style="padding: 0px;margin-bottom: 20px;">LỄ THÀNH HÔN</p>
+            <h3 id="time-enjoy">Vào lúc 8:00</h3>
+
+            <div class="date-box">
+                <div class="month">Thứ Hai</div>
+                <div class="day">1/12</div>
                 <div class="year">NĂM 2025</div>
             </div>
 
             <p class="lunar">(Tức ngày 12 tháng 10 năm Ất Tỵ)</p>
         </div>
 
-        <div class="calendar fade-up">
+        <div class="calendar reveal">
             <strong class="calendar-title">December</strong>
             <table>
                 <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr>
@@ -923,7 +877,23 @@
             </table>
         </div>
 
-        <div class="countdown-section">
+        <div style="margin: 30px 0 40px 0" class="reveal">
+            <div class="families-horizontal">
+                <div class="family-box trai">
+                    <h4>NHÀ TRAI</h4>
+                    <p>Bố. Bùi Văn Quang</p>
+                    <p>Mẹ. Vũ Thị Hà</p>
+                </div>
+
+                <div class="family-box gai">
+                    <h4>NHÀ GÁI</h4>
+                    <p>Bố. Dương Xuân Nam</p>
+                    <p>Mẹ. Nguyễn Thị Thu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="countdown-section reveal">
             <h4 class="quote">ĐẾM NGƯỢC</h4>
             <div class="countdown-container">
                 <div class="countdown-item">
@@ -945,9 +915,10 @@
             </div>
         </div>
 
-        <div class="wedding-info2 fade-up">
+        <div class="wedding-info2 reveal">
             <p class="quote">NƠI DIỄN RA HÔN LỄ</p>
-            <p class="address" id="mapAddress">null</p>
+            <p class="address1">Tại tư gia nhà gái</p>
+            <p class="address2" id="mapAddress">null</p>
 
             <div id="map"
                  style="
@@ -965,16 +936,50 @@
         </div>
     </div>
 
-    <div class="film-border">
+    <!--<div class="film-border">
         <div class="film-container">
-            <div class="images-row" id="images">
-                <!-- JS will duplicate images here -->
-            </div>
-            <div class="images-row" id="images-copy">
-                <!-- duplicate of images for seamless loop -->
-            </div>
+            <div class="images-row" id="images">-->
+    <!-- JS will duplicate images here -->
+    <!--</div>
+    <div class="images-row" id="images-copy">-->
+    <!-- duplicate of images for seamless loop -->
+    <!--</div>
             <div class="film-strip"></div>
         </div>
+    </div>-->
+
+    <div>
+        <p class="quote" id="greeting-quote">ALBUM</p>
+        <div class="gallery">
+            <img src="sources/images/rolls/n3765.webp">
+            <img src="sources/images/rolls/n3825.webp">
+            <img src="sources/images/rolls/n3887.webp">
+            <img src="sources/images/rolls/n3955.webp">
+            <img src="sources/images/rolls/n4011.webp">
+            <img src="sources/images/rolls/n4120.webp">
+            <img src="sources/images/rolls/n4159.webp">
+            <img src="sources/images/rolls/n4203.webp">
+            <img src="sources/images/rolls/n4209.webp">
+            <img src="sources/images/rolls/n4216.webp">
+            <img src="sources/images/rolls/n4298.webp">
+            <img src="sources/images/rolls/n4457.webp">
+            <img src="sources/images/rolls/n4500.webp">
+            <img src="sources/images/rolls/n4536.webp">
+            <img src="sources/images/rolls/n4543.webp">
+            <img src="sources/images/rolls/n4651.webp">
+            <img src="sources/images/rolls/n4666.webp">
+            <img src="sources/images/rolls/n4679.webp">
+            <img src="sources/images/rolls/n4701.webp">
+            <img src="sources/images/rolls/n4739.webp">
+            <img src="sources/images/rolls/n4758.webp">
+        </div>
+    </div>
+
+    <div>
+        <p class="quote" id="greeting-quote">THANK YOU</p>
+        <p class="thank-you">
+            Gia đình chúng tôi xin chân thành cảm ơn sự hiện diện và tình cảm của quý vị trong ngày trọng đại này.
+        </p>
     </div>
 
     <div id="lightbox" class="lightbox">
@@ -1075,27 +1080,50 @@
         const mapNavigator = document.getElementById("mapNavigator");
         const mapAddress = document.getElementById("mapAddress");
 
+        const greetingQuote = document.getElementById("greeting-quote");
+        const greetingInvite = document.getElementById("greeting-invite");
+        const timeQuote = document.getElementById("time-quote");
+
+        const timeEat = document.getElementById("time-eat");
+        const timeEnjoy = document.getElementById("time-enjoy");
+
         function onType0() {
             coords = [20.750467, 106.251851];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
+            greetingQuote.textContent = "THƯ MỜI THAM DỰ LỄ THÀNH HÔN";
+            greetingInvite.textContent = "đến dự buổi lễ thành hôn của";
+            timeQuote.textContent = "LỄ THÀNH HÔN";
+            timeEat.textContent = "Vào lúc 12:30";
+            timeEnjoy.textContent = "Vào lúc 8:00";
         }
 
         function onType1() {
             coords = [20.678933, 105.861385];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
+            greetingQuote.textContent = "THƯ MỜI THAM DỰ LỄ VU QUY";
+            greetingInvite.textContent = "đến dự buổi lễ vu quy của";
+            timeQuote.textContent = "LỄ VU QUY";
+            timeEat.textContent = "Vào lúc 10:30";
+            timeEnjoy.textContent = "Vào lúc 8:00";
         }
 
         if (type === "0") {
             onType0();
         } else if (type === "1") {
             onType1();
+            swap();
         } else {
             mapNavigator.href = "#";
             mapNavigator.textContent = "Không có liên kết hợp lệ";
             mapNavigator.style.background = "#999";
             console.log("Invalid type parameter");
+        }
+
+        function swap() {
+            document.querySelector('.families-horizontal')
+                .classList.toggle('swap-order');
         }
 
         //-----Add map-----
@@ -1111,7 +1139,7 @@
     </script>
 
     <script>
-        const filmContainer = document.querySelector('.film-container');
+        const filmContainer = document.querySelector('.gallery');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBtn = document.querySelector('.lightbox .close');
@@ -1144,7 +1172,7 @@
         }
 
         // Open lightbox when clicking on any film image
-        document.querySelectorAll('.cell').forEach((cell, index) => {
+        document.querySelectorAll('.gallery').forEach((cell, index) => {
             cell.addEventListener('click', () => openLightbox(0));
         });
 
@@ -1168,5 +1196,23 @@
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const imgs = document.querySelectorAll(".gallery img");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            imgs.forEach(img => observer.observe(img));
+        });
+    </script>
 </body>
 </html>
