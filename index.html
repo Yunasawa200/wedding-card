@@ -960,7 +960,7 @@
 
         <div class="wedding-info2 reveal">
             <p class="quote">NƠI DIỄN RA HÔN LỄ</p>
-            <p class="address1">Tại tư gia nhà gái</p>
+            <p id="event-place" class="address1">Tại tư gia nhà gái</p>
             <p class="address2" id="mapAddress">null</p>
 
             <div id="map"
@@ -1133,13 +1133,14 @@
         const heroType0 = document.getElementById("hero-type0");
         const heroType1 = document.getElementById("hero-type1");
 
+        const eventPlace = document.getElementById("event-place");
         let globalColor = 'rgba(0, 0, 0, 1)';
         let titleColor = 'rgba(0, 0, 0, 1)';
 
         function onType0() {
             coords = [20.750467, 106.251851];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
-            mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
+            mapAddress.textContent = "Địa chỉ: Xóm Chung, thôn La Ngoại, Thanh Miện, Hải Phòng";
             greetingQuote.textContent = "THƯ MỜI THAM DỰ LỄ THÀNH HÔN";
             greetingInvite.textContent = "đến dự buổi lễ thành hôn của";
             timeQuote.textContent = "LỄ THÀNH HÔN";
@@ -1148,6 +1149,7 @@
             heroType0.style.display = "flex";
             titleColor = '#fff';
             globalColor = '#326422';
+            eventPlace.textContent = "Tại tư gia nhà trai";
         }
 
         function onType1() {
@@ -1162,6 +1164,7 @@
             heroType1.style.display = "flex";
             titleColor = '#ff7093';
             globalColor = '#ff7093';
+            eventPlace.textContent = "Tại tư gia nhà gái";
         }
 
         function swap() {
