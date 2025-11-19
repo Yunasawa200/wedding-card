@@ -20,6 +20,7 @@
     <style>
         :root {
             --global-color: rgba(50, 100, 34);
+            --title-color: #fff;
         }
     </style>
 
@@ -155,6 +156,7 @@
             z-index: 1;
             font-weight: 100;
             animation: fadeInUp 2s ease;
+            color: var(--title-color);
         }
 
         .hh2 {
@@ -165,6 +167,7 @@
             z-index: 1;
             font-weight: 100;
             animation: fadeInUp 2s ease;
+            color: var(--title-color);
         }
 
         .hh3 {
@@ -176,7 +179,7 @@
             animation: fadeInUp 2s ease;
             color: rgba(255, 255, 255, 0.3);
         }
-        
+
         .hh4 {
             height: 40px;
             font-family: 'Parisienne', cursive;
@@ -184,16 +187,16 @@
             z-index: 0;
             font-weight: 100;
             animation: fadeInUp 2s ease;
-            color: rgba(255, 255, 255, 1);
-        } 
-        
+            color: var(--title-color);
+        }
+
         .hh5 {
             font-family: 'Nunito', cursive;
             font-size: 15px;
             z-index: 0;
             font-weight: 100;
             animation: fadeInUp 2s ease;
-            color: rgba(255, 255, 255, 1);
+            color: var(--title-color);
         }
 
         .amp-wrapper {
@@ -1128,7 +1131,8 @@
         const heroType0 = document.getElementById("hero-type0");
         const heroType1 = document.getElementById("hero-type1");
 
-        let color = 'rgba(0, 0, 0,   1)';
+        let globalColor = 'rgba(0, 0, 0, 1)';
+        let titleColor = 'rgba(0, 0, 0, 1)';
 
         function onType0()
         {
@@ -1141,21 +1145,23 @@
             timeEat.textContent = "Vào lúc 12:30";
             timeEnjoy.textContent = "Vào lúc 8:00";
             heroType0.style.display = "flex";
-            color = 'rgba(50, 100, 34, 1)';
+            titleColor = '#fff';
+            globalColor = '#326422';
         }
 
         function onType1()
         {
             coords = [20.678933, 105.861385];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
-            mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
+            mapAddress.textContent = "Địa chỉ: Số nhà 26, đường làng phía Đông thôn Cung Thuế, Ứng Hòa, Hà Nội";
             greetingQuote.textContent = "THƯ MỜI THAM DỰ LỄ VU QUY";
             greetingInvite.textContent = "đến dự buổi lễ vu quy của";
             timeQuote.textContent = "LỄ VU QUY";
             timeEat.textContent = "Vào lúc 10:30";
             timeEnjoy.textContent = "Vào lúc 8:00";
             heroType1.style.display = "flex";
-            color = 'rgba(150, 51, 88, 1)';
+            titleColor = '#ff7093';
+            globalColor = '#ff7093';
         }
 
         function swap()
@@ -1180,7 +1186,8 @@
             console.log("Invalid type parameter");
         }
 
-        document.documentElement.style.setProperty('--global-color', color);
+        document.documentElement.style.setProperty('--global-color', globalColor);
+        document.documentElement.style.setProperty('--title-color', titleColor);
 
         //-----Add map-----
 
