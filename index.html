@@ -18,11 +18,17 @@
     <link rel="stylesheet" href="Styles/FamilyIntroduction.css" />
 
     <style>
+        :root {
+            --global-color: rgba(50, 100, 34);
+        }
+    </style>
+
+    <style>
         .break-quote {
             padding: 15px;
             font-size: 15px;
             text-align: justify;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
     </style>
     <style>
@@ -83,14 +89,14 @@
         .role {
             font-size: 40px;
             font-weight: 100;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: -5px;
             font-family: 'Mea Culpa', serif;
         }
 
         .name {
             font-size: 22px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 6px;
             letter-spacing: 1px;
             font-family: 'Playfair Display', serif;
@@ -213,7 +219,7 @@
         .quote {
             font-size: 20px;
             letter-spacing: 1px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-top: 20px;
             margin-bottom: 10px;
             padding: 0 40px;
@@ -225,7 +231,7 @@
         .guess-name {
             font-size: 40px;
             font-family: 'Great Vibes';
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
         @keyframes fadeIn {
@@ -248,7 +254,7 @@
         .save-date {
             font-family: 'Monsieur La Doulaise', cursive;
             font-size: 40px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-top: 10px;
             margin-bottom: -5px;
         }
@@ -275,7 +281,7 @@
 
         .countdown-item {
             text-align: center;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
             .countdown-item span {
@@ -283,7 +289,7 @@
                 font-size: 25px;
                 font-weight: bold;
                 font-family: 'Nunito', sans-serif;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 text-shadow: 0 2px 6px rgba(0,0,0,0.1);
                 animation: glowPulse 2s infinite ease-in-out;
             }
@@ -293,7 +299,7 @@
                 font-size: 14px;
                 letter-spacing: 1px;
                 margin-top: 4px;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
             }
 
 
@@ -304,7 +310,7 @@
         .countdown-title {
             font-size: 16px;
             font-weight: 700;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-top: 40px;
             letter-spacing: 1px;
         }
@@ -320,13 +326,13 @@
         .wedding-info .countdown-item span {
             font-size: 22px;
             font-weight: 700;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
         .wedding-info .countdown-item small {
             display: block;
             font-size: 13px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-top: 3px;
             font-weight: bold;
         }
@@ -442,13 +448,13 @@
             .invitation h4 {
                 font-size: 15px;
                 letter-spacing: 1px;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 margin-bottom: 25px;
             }
 
             .invitation h2 {
                 font-size: 36px;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 line-height: 1.4;
                 font-weight: 700;
             }
@@ -496,7 +502,7 @@
             border-radius: 10px;
             margin: 30px 20px 20px;
             text-align: center;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
         .wedding-info2 {
@@ -505,7 +511,7 @@
             padding: 30px 20px;
             margin: 0 20px 20px;
             text-align: center;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
         .wedding-info .time-text {
@@ -513,7 +519,7 @@
             line-height: 1.6;
             letter-spacing: 0.5px;
             font-weight: 600;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 18px;
         }
 
@@ -521,7 +527,7 @@
             padding-bottom: 10px;
             font-size: 17px;
             letter-spacing: 1px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             font-family: 'Nunito', serif;
             font-weight: 100;
         }
@@ -532,7 +538,7 @@
             justify-content: center;
             gap: 14px;
             font-family: 'Playfair Display', serif;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 8px;
         }
 
@@ -550,14 +556,14 @@
             .date-box .day {
                 font-size: 45px;
                 font-weight: 700;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 line-height: 1;
                 font-family: 'Nunito', serif;
             }
 
         .lunar {
             font-size: 15px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-top: 6px;
             font-family: 'Tinos';
         }
@@ -565,14 +571,14 @@
         .place-title {
             font-size: 15px;
             font-weight: 700;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
         .address1 {
             font-size: 20px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 10px;
             font-family: 'Nunito';
             font-weight: bold;
@@ -580,7 +586,7 @@
 
         .address2 {
             font-size: 15px;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
             margin-bottom: 22px;
             font-family: 'Nunito';
         }
@@ -588,8 +594,8 @@
         .map-btn {
             display: inline-block;
             background: #ffffff;
-            color: rgba(50, 100, 34);
-            border: 2px solid rgba(50, 100, 34);
+            color: var(--global-color);
+            border: 2px solid var(--global-color);
             padding: 8px 20px;
             border-radius: 25px;
             font-weight: 700;
@@ -602,7 +608,7 @@
         }
 
             .map-btn:hover {
-                background: rgba(50, 100, 34);
+                background: var(--global-color);
                 color: #fff;
             }
 
@@ -625,7 +631,7 @@
             margin: 40px auto 30px;
             max-width: 800px;
             text-align: left;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
 
         /* Hai hộp nằm ngang, luôn giữa màn hình */
@@ -646,7 +652,7 @@
             .family-box h4 {
                 font-size: 20px;
                 font-weight: 600;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 margin-bottom: 8px;
                 letter-spacing: 1px;
                 text-align: left;
@@ -655,7 +661,7 @@
 
             .family-box p {
                 font-size: 15px;
-                color: rgba(50, 100, 34);
+                color: var(--global-color);
                 margin: 4px 0;
                 text-align: left;
                 font-family: 'Tinos';
@@ -814,7 +820,7 @@
             padding: 0 20px 0 20px;
             font-size: 20px;
             text-align: center;
-            color: rgba(50, 100, 34);
+            color: var(--global-color);
         }
     </style>
 </head>
@@ -1122,7 +1128,10 @@
         const heroType0 = document.getElementById("hero-type0");
         const heroType1 = document.getElementById("hero-type1");
 
-        function onType0() {
+        let color = 'rgba(0, 0, 0,   1)';
+
+        function onType0()
+        {
             coords = [20.750467, 106.251851];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.750467,106.251851&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: La Ngoại, Thanh Miện, Hải Phòng";
@@ -1132,9 +1141,11 @@
             timeEat.textContent = "Vào lúc 12:30";
             timeEnjoy.textContent = "Vào lúc 8:00";
             heroType0.style.display = "flex";
+            color = 'rgba(50, 100, 34, 1)';
         }
 
-        function onType1() {
+        function onType1()
+        {
             coords = [20.678933, 105.861385];
             mapNavigator.href = "https://www.google.com/maps/dir/?api=1&destination=20.678933,105.861385&travelmode=driving";
             mapAddress.textContent = "Địa chỉ: Cung Thuế, Ứng Hòa, Hà Nội";
@@ -1144,24 +1155,32 @@
             timeEat.textContent = "Vào lúc 10:30";
             timeEnjoy.textContent = "Vào lúc 8:00";
             heroType1.style.display = "flex";
+            color = 'rgba(150, 51, 88, 1)';
         }
 
-        if (type === "0") {
+        function swap()
+        {
+            document.querySelector('.families-horizontal').classList.toggle('swap-order');
+        }
+
+        if (type === "0")
+        {
             onType0();
-        } else if (type === "1") {
+        }
+        else if (type === "1")
+        {
             onType1();
             swap();
-        } else {
+        }
+        else
+        {
             mapNavigator.href = "#";
             mapNavigator.textContent = "Không có liên kết hợp lệ";
             mapNavigator.style.background = "#999";
             console.log("Invalid type parameter");
         }
 
-        function swap() {
-            document.querySelector('.families-horizontal')
-                .classList.toggle('swap-order');
-        }
+        document.documentElement.style.setProperty('--global-color', color);
 
         //-----Add map-----
 
@@ -1208,9 +1227,8 @@
             lightboxImg.src = lightboxImages[currentIndex];
         }
 
-        // Open lightbox when clicking on any film image
-        document.querySelectorAll('.gallery').forEach((cell, index) => {
-            cell.addEventListener('click', () => openLightbox(0));
+        document.querySelectorAll('.gallery img').forEach((img, index) => {
+            img.addEventListener('click', () => openLightbox(index)); // use the actual index
         });
 
         // Navigation
